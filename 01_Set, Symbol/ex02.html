@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>title</title>
+    <style>
+
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+        //자료구조 반복
+        let ar = ['a','b','c','d','e'];
+        //for반복
+        for(let i = 0; i<ar.length; i++){
+            console.log(ar[i-1]);
+        }
+        console.log("-------------------------------------");
+        //2 forEach
+        ar.forEach(val => console.log(val));
+        });
+
+        //3 Set자료구조와 다양한 메소드 --> keys(), values()
+        let testSet3 = new Set(["tiger", "lion", "cat"]);
+
+        testSet3.add("hippo");
+
+        console.log(testSet3.values());
+
+        for(let i in testSet3){
+            console.log(i);
+        }
+
+        let arr=[...testSet3];
+        console.log(arr);
+
+        const key_itr = testSet3.keys();
+        console.log(key_itr.next().value);//tiger
+        console.log(key_itr.next().value);//lion
+        console.log(key_itr.next().value);//cat
+        console.log(key_itr.next().value);//hippo
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

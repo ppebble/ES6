@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>title</title>
+    <style>
+
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        /*
+        new 연산자의 내부 동작
+        내부적으론 빈 객체를 생성한 후에 --> 같은 이름의 "프로토타입 객체"를 새로운 객체의 원형으로 설정
+       */
+        function Add(a,b){
+            this.a = a;
+            this.b = b;
+        }
+        Add.prototype.plus = function(){
+            return this.a + this.b;
+        }
+        // 새로운 객체 생성
+        const add = new Add(1, 2);
+        console.log(add.plus())
+
+        /*
+        내부 동작 ::
+        빈 객체 생성 ->빈 객체에 prototype 할당
+
+        
+        */
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

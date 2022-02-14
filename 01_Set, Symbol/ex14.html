@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>title</title>
+    <style>
+
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        /*
+        new로 생성하는 예제
+       */
+        //생성자 함수
+        const Housing = function(name, color) {
+            this.name = name;
+            this.color = color;
+
+        };
+        //프로토타입 객체 
+        Housing.prototype.toilet=1;
+        Housing.prototype.turnOn=function() { console.log("光")};
+        
+        //객체 생성 new
+        const apt = new Housing('apt', 'red');
+        console.log(apt.name);
+        console.log(apt.color);
+        console.log(apt.toilet);
+        apt.turnOn();
+
+        console.clear();
+
+        //수정
+        apt.name = "에페트";
+        console.log(apt.name);
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

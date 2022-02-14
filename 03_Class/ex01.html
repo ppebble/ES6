@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>title</title>
+    <style>
+
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        /*
+        기존 자바스크립트언어는 클래스 문법이 없었음
+        대신 프로토타입으로 상속과 캡슐화 등 OOP 문법을 구현했었다
+        
+        프로토타입 OOP는 너무 어렵다.
+
+        ES6 -> 클래스 문법 지원한다
+        기존 프로토타입 기반의 OOP 문법이 없어진 것은 X . . . 둘 다 써도 됨 ㅇㅇ
+        
+        클래스 선언과 객체 생성 ~~ ::
+       */
+        class Person {
+            
+            //생성자 
+            constructor(name, age){
+                this.name = name;
+                this.age = age;
+            }
+            testHello(){
+                console.log(`hi  ${this.name}(${this.age}) 님, 환영합니다.`)
+            }
+        }
+        const p1 = new Person('lee', 26);
+        p1.testHello();
+        
+        console.log(p1);
+
+        //클래스의 타입 ?? == function
+        console.log(typeof Person); // function =  객체 처럼 사용 가능
+
+        // 함수도 객체다.
+        function myMultiple(a,b){
+            return a*b;
+        }
+        //이 함수에 객체처럼 속성을 추가
+        myMultiple.ret = myMultiple(10,10);
+
+        console.log(myMultiple.ret); // 100; 10*10
+
+        // WHY class  ==> function ? (feat. prototype)
+        //클래스 선언문은 아래와같은 내부 동작을 수행한다.
+        // 1.Class와 같은 이름의 함수를 생성
+        // 2.이 함수의 본문은 class의 constructor를 그대로 가져온다. (constructor가 없다면 비어있는 함수를 생성)
+        // 3.메소드는 같은 이름의 Person.prototype(프로토타입 객체)에 추가
+        // 4. 결국 프로토타입 객체 쪽에 클래스내에 정의한 메소드를 추가해놓는 것이기 때문에,
+        // 해당 클래스의 객체가 생성되면 추가된 메소드를 자유롭게 이용할 수 있는 것이다.
+
+        
+    </script>
+</head>
+<body>
+</body>
+    
+</html>

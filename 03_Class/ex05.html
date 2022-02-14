@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>title</title>
+    <style>
+
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        //Class - getOwnPropertyNames() -> 클래스 내에 정의된 속성들의 이름을 배열로 리턴받는 메소드
+        //어떤 객체를 다룰 때 그 객체의 모든 특성을 보고자 한다면 사용하는 메소드
+        //정적 메소드 -> Object.getOwnPropertyNames(object)
+                    //  ->Object.getPrototypeOf() --> 지정된 객체의 내부 Prototype 속성값 리턴 .  
+        
+        const p1 ={
+            eat(){}, run(){},rest(){}
+        };
+        class Person2{
+            constructor(name, age){
+                this.name = name;
+                this.age =age;
+            }
+            eat(){}
+            run(){}
+            rest(){}
+        }
+        const p2 = new Person2('a', 300);
+
+        //클래스는 열거대상이 아니기 때문에 메소드가 보이지 않는다.
+        for(let i in p2){
+            console.log(i); //name ,age ... (eat, run, rest는 보이지 않는다)
+        }
+        console.log(p1);//{eat f , run f, rest f}
+        console.log(p2);//Person2{name : 'a', age : 300}
+        
+        console.clear();
+        console.log(Object.keys(p1)) //[eat, run, rest]
+        console.log(Object.getPrototypeOf(p2));//{constructor f , eat f, run f, rest f} 지정된 내부 객체의 Prototype 속성 값을 리턴
+        console.log(Object.keys(Object.getPrototypeOf(p2)));//[] : 열거대상이 아닌 것은 보이지 않는다. keys 메소드론 볼 수 없다.
+
+        console.log(Object.getOwnPropertyNames(p1));//keys와 같음
+        console.log(Object.getOwnPropertyNames(Object.getPrototypeOf(p2)))//['constructor', 'eat', 'run', 'rest'] :: keys 출력한거 마냥 리터럴로 출력됨 
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

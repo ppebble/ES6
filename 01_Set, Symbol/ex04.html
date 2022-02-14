@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>title</title>
+    <style>
+
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        
+        //[1] : 심볼 타입이란 무엇인가
+        // ES6에 새롭게 도입된 원시형 타입 중 하나 -> 객체의 속성으로 사용
+        //심볼타입을 사용하면 유일무이(고유한) 값을 가지게 된다.
+        //동시에 심볼형 값은 --> 변경 불가능한 불변값
+
+        //[2] 원시형 / 참조형 중 원시형에 새롭게 추가된 타입
+        //원시형 :: Number, String, Null, Boolean, Symbol(ES6)
+        //참조형 :: Object(object, function, Array . . . )
+
+        //[3] : 객체의 속성으로 심볼형을 사용하는 이유 ? ? ? $충돌을 피하기 위함
+        // 배열 객체를 만들어서 "a.length" -> 같은 이름의 length로 넢어쓰면 덮어써지는 문제가 발생
+        //이떄 배열의 길이값은 그대로 유지 하면서 같은 이름의 length속성을 추가하고자 할 때 사용하면 문제를 해결할 수 있다.
+        
+        let ar = [1,2,3,4];
+        console.log(ar.length); //4
+
+        ar.length = 50; // ar.length 속성을 정의하고있다.
+        console.log(ar.length); // 50 값이 덮어써지게 된다.
+
+        let ar2=[1,2,3,4];
+        const length=Symbol('length');
+        
+
+        ar2[length] = 50; //ar2.length에 50 할당
+
+        console.log(ar2.length); // 4
+        console.log(ar2[length]); // 50
+        //객체에 속성을 추가하거나 덮어써질 우려가 있다면 충돌을피하는 수단으로 SYMBOL을 사용할 수 있다.
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

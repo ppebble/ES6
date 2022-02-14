@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>title</title>
+    <style>
+
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        
+
+        //3 Set자료구조와 다양한 메소드 --> keys(), values()
+        let testSet3 = new Set(["tiger", "lion", "cat"]);
+
+        testSet3.add("hippo");
+
+        console.log(testSet3.values());
+
+        for(let i in testSet3){
+            console.log(i);
+        }
+
+        let arr=[...testSet3];
+        console.log(arr);
+
+        const key_itr = testSet3.keys();
+        console.log(key_itr.next().value);//tiger
+        console.log(key_itr.next().value);//lion
+        console.log(key_itr.next().value);//cat
+        console.log(key_itr.next().value);//hippo
+
+        //for ..or
+        for(let i of testSet3){
+            console.log('4 : ' + i)
+        }
+        //5entries
+        let testSet5 = new Set();
+
+        testSet5.add('a');
+        testSet5.add('b');
+
+        const entries = testSet5.entries(); //배열객체로 반환
+
+        for(let i of entries){
+            console.log(i);
+        }
+
+        //삽입순으로 Set요소 각각에 대해서 [value, value]
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

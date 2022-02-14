@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>title</title>
+    <style>
+
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        const calc = (a, b) =>{ 
+            
+            setTimeout(() => {
+                iter.next(a*b);
+             }, 10);
+              }
+        /*
+        Generator 비동기 처리
+       */
+        
+        function* testGen(){
+            const a = yield calc(1, 10);
+            console.log(a);
+            const b = yield calc(a, 20);
+            console.log(b);
+            const c = yield calc(b, 30);
+            console.log(c);
+            const d = yield calc(c, 40);
+            console.log(d);
+        }
+        // 단순히 실행되는 것이 아니라 next yield가 작동되면서 이어진다는 것을 기억해야함
+        
+        const iter = testGen();
+        // iter.next(); // 객체[value, done] 반환 X(console.log(a)는 실행안된다) ->const a = yield 에서 멈췄다.
+        // iter.next();// return :: undefined  ?? 다시 재개하였을 때 외부에서 실행되는 것이므로 파라미터를 따로 할당해줘야한다.(현재는 a만 선언 되어있는 상태)
+        // iter.next(202); // return :: 202(외부에서 202 parameter들어감)
+        // iter.next(404);
+        // iter.next("NOT FOUND");
+        console.log("===================================");
+
+        iter.next();
+
+        
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

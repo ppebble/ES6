@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>title</title>
+    <style>
+
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        /*
+        setTimeout VS setInterval
+        비동기 처리에는 다양한 방법들이 존재한다 -> Promise / Generator를 이용한 비동기 처리
+        호출 스케쥴링 함수 -> setTimeout(), setInterval()
+
+        setTimeout :: 일정 시간 '후'에 함수를 한번만 실행 // setInterval :: 일정시간'마다' 함수를 주기적으로 실행
+       */
+        function testHello(){
+            console.log('helo');
+        }
+        function testHello2(t){
+            console.log(t);
+        }
+        
+        setTimeout(testHello, 2000); //Event Loop , CallbackQueue
+        setTimeout(testHello2, 5000, "Helo X Halo");
+        setTimeout((a)=>console.log(a),7000, 'Halllo' );
+        setTimeout(console.log(),7000, this.ti  ); //SetTimeout은 함수를 지연출력하는 것 ,  hello는 바로 출력된 후 setTimeout이 콜백큐로 들어가서 실행된다
+        
+        //호출 취소 :: clearTimeout / clearInterval
+        //setTitmeout -> Timer식별자 반환 -->(NUMBER) --> 
+        // clearTimeout(ti)
+
+        //setInterval
+        //SetTimeout과의 차이점 ? 한번만 실행 vs 주기적 실행
+        //주기적 실행 중단 :: clearInterval.
+        
+        const tid = setInterval( ()=> console.log("korea"), 1000);
+        const myStop = (tid) =>{ clearInterval(tid); }
+        setTimeout(myStop, 10000, tid);
+
+        setInterval(/*() =>*/ console.log('setInterval'), 300);
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

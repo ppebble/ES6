@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>title</title>
+    <style>
+
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        /*
+        객체 생성 시 생성자 안에 메소드를 정의하면 안되는 이유 :: 메모리 낭비, 생성자 안에 메소드를 정의하면 생성되는 객체마다 메소드가 포함된다.
+       */
+        function Add(a,b){
+            this.a = a;
+            this.b = b;
+            this.plus = function(){
+                return this.a + this.b;
+            };
+        }
+        let add1 = new Add(100, 200);
+        console.log(add1.plus());//300
+        console.log(add1);
+
+        let add2 = new Add(200, 300);
+        console.log(add2);
+
+        //프로토타입객체에 정의
+        function Add2(a,b){
+            this.a = a;
+            this.b = b;
+        }
+        Add2.prototype.plus = function( ){
+            return this.a + this.b;
+        }
+        let add3 = new Add2(100, 200);
+        let add4 = new Add2(200,300);
+        console.log(add3);
+        console.log(add3.plus());
+        console.log(add4);
+        console.log(add4.plus());
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

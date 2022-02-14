@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>title</title>
+    <style>
+
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        //자바스크립트 함수의 내부와 객체간의 관계
+        /*
+        [1] 함수가 만들어지고 수행이 되어지면 . . .
+        내부에선 :: 함수 자신, 그리고 같은 이름의 프로토타입 객체가 생성된다.
+                    함수 멤버로 -->프로토타입 속성이 생성 --> 다른 곳에 생성된 같은 이름의 프로토타입을 참조한다.
+                    프로토타입 객체 --> 생성자함수와 new 연산자를 통해 만들어내는 모든 객체의 원형이 되는 객체
+        */
+        function Animal() {}
+
+        let tiger = new Animal();
+        //new 연산자와 생성자 함수를 이용하여 객체 생성 시 각 객체는 __proto__속성이 자동으로 생성.
+        //__proto__ :: 이 객체가 만들어질 수 있도록 해준 원형 함수 객체를 가리킨다.(참조한다)
+
+        
+
+        //프로토타입 객체에 멤버 추가
+        Animal.prototype.run = function(){
+            return "RUN";
+        }
+        console.log(tiger.run());
+
+        //속성 추가
+        tiger.aniLeg = 4;
+        console.log(tiger.aniLeg); //4
+
+        //어떤 함수의 프로토타입 객체는  객체의 생성을 위한 부모격의 원형이 되는 객체이다.
+        /*
+        이 프로토타입으로 생성된 객체들은 모두 이 프로토타입객체의 멤버들에 접근이 가능하고 사용할 수 있다. -> 생성된 객체들과 공유
+        새롭게 생성된 객체에서 원형의 메소드를 재정의하면 재정의 된 메소드가 적용된다.
+        멤버 추가/수정/삭제 -> prototype속성을 통해 적용
+        멤버를 읽는 것 -> 객체명 또는 함수의 프로토타입 속성을 통해 접근이 가능
+        */
+        console.clear();
+        console.log(tiger.run());
+        console.log(Animal.prototype.run());//위와 같음
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
