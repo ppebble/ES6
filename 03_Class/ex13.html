@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>title</title>
+    <style>
+
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        /*
+        Iterator , Iterable
+
+        이터러블 규약 :: for..of 구문을 사용하여 객체를 반복할 때 -> 값이 열거되고 -> 내부에는 @@iterator 메서드가 구현되어있어야한다.
+        Symbol.iterator() == @@iterator
+
+        자바스크립트 내장객체 --> Array, String, Map, Set, agruments . . . 이터러블 규약을 따름
+
+        이터러블 객체라면 for...of구문으로 반복시키면서 값의 열거 가능 -> 각 객체별로 열거되는 방식에는 차이가 있다.
+
+        String :: 한 글자씩 따로 열거
+        Array :: 요소 단위로 하나씩 열거 수행
+        이런 부분을 공통화하기위해서 이터러블 객체는 내부적으로 @@iterator 메소드를 구현한다.
+        이때 @@iterator메소드는 객체으 ㅣ속성이나 또는 체이닝 상의 객체 중 하나가 속성으로 Symbol.iterator 키를 가져야한다.
+
+        이터러블 객체의 생성
+        기본적으로 이터러블 객체라면 Symbol.iterator 키를 가진다
+       */
+        const str1="KOREA";
+        const iterator = str1[Symbol.iterator]();
+        console.log(iterator);//이터레이터 객체는 이터레이터 규약에 따라 내부의 next()메소드를 통해 값을 하나씩 순차적으로 열거
+                            // 이때, 열거는 객체이며 속성으로 value, done 2가지 속성을 가진다
+                            //value(, undefined), done(boolean)
+
+        const ar1 = ['a', 'b','c','d'];
+        const iter = ar1[Symbol.iterator]();
+        console.log(iter);
+        //console.log(iter.next());
+        
+        for(let value of iter){
+            console.log(value);
+        }
+        console.clear();
+        //이터레이터 객체 직접 구현
+        let testIterObj = {
+            i: 1,
+            [Symbol.iterator]:function(){
+                return this;
+            },
+            next:function(){
+                if(this.i<5){
+                    return{value : this.i++, done : false};
+                }else{
+                    return{value : undefined, done : true};
+                }
+                
+            }
+        }
+        const iter1 = testIterObj[Symbol.iterator]();
+        for(let i of iter1){
+            console.log(i);
+        }
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

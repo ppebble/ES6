@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>title</title>
+    <style>
+
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        /*
+        
+       */
+        class A{
+            constructor(group){
+                this.group = group;
+            }
+            GetGroup(){
+                return this.group;
+            }
+            b(){ return 'b';}
+        }
+        class B extends A{
+            constructor(name){
+                super(B.name);
+                this.name = name;
+            }
+            run(){
+                return "son running";
+            }
+            b(){
+                return "a not b";
+            }
+        }
+        const a = new B('b');
+        console.log(a.b()); // a not b  :: 오버리이딩 된 자식메소드 리턴
+        console.log(Object.getOwnPropertyNames(a));
+        console.log(Object.getOwnPropertyNames(Object.getPrototypeOf(a)));
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

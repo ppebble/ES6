@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>title</title>
+    <style>
+
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        /*
+        상속과 super 
+        부모/상위 클래스와 자식/하위 클래스의 상속관계
+        부모클래스의 constructor는 자식클래스의 super를 통해 값을 받도록 처리하시오
+       */
+        
+        class A{
+            constructor(group){
+                this.group = group;
+            }
+            GetGroup(){
+                return this.group;
+            }
+            b(){ return 'b';}
+        }
+        class B extends A{
+            constructor(name){
+                super(B.name);
+                this.name = name;
+            }
+            run(){
+                return "son running";
+            }
+
+        }
+        const a1 = new B('b');
+        console.log(a1.name);//b
+        console.log(a1.GetGroup());//undefined , ,,  B   >> super(B.name)
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

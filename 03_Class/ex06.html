@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>title</title>
+    <style>
+
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        /*
+       
+       */
+        class Animal{
+            constructor(name){
+                this.name =name;
+            }
+            cry(){
+                console.log(this.name + "  cry");
+            }
+        }
+        const ani1 = new Animal('tiger');
+        console.log(ani1.name);
+        ani1.cry();
+
+        console.log('-----------------------------------------------------------------');
+        console.log(typeof Animal); //function(class == function)
+        Animal.prototype.age=4;
+        Animal.prototype.run = function(){
+            console.log(this.name + " is running ");
+        }
+        console.log(ani1.age);
+        ani1.run();
+        
+        console.log(Animal.name);
+        console.log(Animal === Animal.prototype.constructor)//true
+        
+        console.log(Object.getOwnPropertyNames(Animal.prototype));
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
