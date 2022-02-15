@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>title</title>
+    <style>
+
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        /*
+        
+       */
+        
+        $(document).ready(function(){
+            const mkList = function(ar){
+                let el='<ul>\n';
+                for(let i = 0; i<ar.length;i++){
+                    el += '<li>' + ar[i]+ '</li>\n';
+                }
+                el += '</ul>';
+                return el;
+            }
+
+            const animals = ['lion', 'tiger', 'dog'];
+            const listItem = mkList(animals);
+            console.log(listItem);
+            document.body.innerHTML = listItem;
+
+            //ClickEvent
+            const li = $("li");
+
+            for(let i=0; i<li.length; i++){
+                li.on("click", function(){
+                    console.log(i + "번째 요소");
+                })
+            }
+        })
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

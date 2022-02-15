@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>title</title>
+    <style>
+
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        /*
+        이미지 노드
+        <img src="path" >
+        이미지 태그 생성
+        생성한 이미지 태그에 엘리먼트 속성 추가
+        해당 객체에 붙여준다.
+        
+       */
+        window.onload = () => {
+            //<img>
+            const imgNode = document.createElement("img");
+            //<img src= "" >
+            // imgNode.src="https://cdn.pixabay.com/photo/2020/11/07/13/07/waves-5720916_960_720.jpg";
+            imgNode.setAttribute("src", "https://cdn.pixabay.com/photo/2020/11/07/13/07/waves-5720916_960_720.jpg");
+            imgNode.setAttribute("id", "obj1");
+            
+
+            //<body>안에 넣기
+            document.body.append(imgNode);
+        }        
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>title</title>
+    <style>
+
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        /*
+        
+       */
+        $(document).ready(function(){
+            
+            btn = $("#addBtn").on("click", function(){
+                const user_name = $("#user_name")[0];//jQuery객체에 접근 후 객체의 첫번째 요소를 가져와야한다.
+                const user_home = $("#user_home")[0];
+                console.log(user_name.value, user_home.value);
+                $("#memberList").append($("<h1>")).text(user_name.value);
+            })
+
+        })
+            
+    </script>
+</head>
+<body>
+    <>
+        <form>
+            <label for="user_name">수강생 이름 : <input type="text" size="50" id="user_name"><br/></label>
+            <label for="user_home">수강생 홈피 : <input type="text" size="50" id="user_home"><br/></label>
+            <button id="addBtn">사용자 추가하기</button>
+        </form>
+        <br>
+        <div id="memberList">
+            <a>1333</a>
+        </div>
+    </>
+</body>
+</html>

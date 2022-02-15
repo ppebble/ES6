@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>title</title>
+    <style>
+        li{
+            list-style: none;
+            border: 1px solid darkblue;
+        }
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        /*
+            li 태그에서의 클로저 함수
+       */
+        $(document).ready(function(){
+            const li = $("li");
+
+            for(let i=0; i<li.length; i++){
+                console.log(i);
+                li.on("click", function(){
+                        console.log(li.index + "번째 요소입니다.");
+                }) // i값이 이벤트 콜백함수 내에서 외부의 var로 선언되어져 있는 i를 참조하기 때문에 계속 3으로 출력된다.
+                
+                
+            }
+            
+            
+        })
+
+        
+    </script>
+</head>
+<body>
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JAVASCRIPT</li>
+    </ul>
+</body>
+</html>

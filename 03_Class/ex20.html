@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>title</title>
+    <style>
+
+    </style>
+
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        /*
+        ES6 Arrow Function
+       */
+        function sum1(x){
+            return function(y){
+                return function(z){
+                    return x+y+z;
+                }
+            }
+        }
+        console.log(sum1(10)(10)(10))
+
+        //ArrowFunction
+        const sumArrowFunc = x => y => z => x+y+z;//위 식과 같음
+        console.log(sumArrowFunc(10)(10)(10));
+
+        console.clear();
+        //문자열
+        const feedArrowFunc = x=>y=> x +"에게 " + y + "을(를) 먹이를 주고있다.";
+        alert(feedArrowFunc('바둑이')('생선'));
+        
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

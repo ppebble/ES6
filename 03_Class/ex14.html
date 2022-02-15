@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>title</title>
+    <style>
+
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        /*
+        Closure 클로저 ? 자바스크립트만의 개념은 아니다.
+        - 외부에 있는 변수가 내부에 있는 함수와 함수 호출한 후에도 종료되지않고 계속 참조하는 것 
+       */
+        const external =function() {
+            let num = 65;
+            let internal= function() {
+                let char_ = String.fromCharCode(num);
+                return `${char_}:${num++}`;
+            };
+            return internal;
+        }
+        
+        /*
+            위 경우는 함수의  종료가 깔끔하게 끝나지 않고 계속 연결고리가 남은 상태(return function...)
+            ->갈비지컬렉터 에게 수거되지 않음
+            결론적으로, 연결고리가 계속 남게 함수 자체를 리턴시켜버리고 그 함수를 받은 변수가 받아서 계속해서 재실행
+        */
+        const etn = external();//외부함수를 실행하여 etn변수에 할당하면 외부함수가 interal내부함수를 반환했기 때문에 변수가 반환된 함수인 interal함수를 계속참조
+                                //결국 가비지컬랙터는 변수가 참조되고있는 함수는 수집하지않으므로 internal내부함수는 etn변수에 의해 계속 호출될 수 있다.
+        
+        console.log(etn());
+        console.log(etn());
+        console.log(etn());
+        console.log(etn());
+        console.log(etn());
+        console.log(etn());
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

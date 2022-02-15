@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>title</title>
+    <style>
+
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        /*
+        커링 (Currying) :: 여러 개의 인자를 가지는 함수를 단일 인자를 갖는 함수( 계층구조로 바꾸는 것 )
+
+                            단일 인자를 받는 함수를 쭉 연결 시킨 것  // 많아지면 메모리 문제가 발생할 수 있다.(콜백지옥)
+        클로저에 대한 개념 이해가 필수적으로 필요
+
+        값을 언제 반환 ? 함수가 필요로 하는 인자의 갯수 만큼 충죽되지 않았다면 계속 "함수"를 반환함.
+        만약, 함수가 필요로 하는 인자의 갯수를 모두 충족시켰다면 그 때, 최종적인 값을 반환
+
+        기존 함수 --> 인자를 2개 받아서 더하는 함수
+       */
+        function sum(x,y){
+            return x+y;
+        }
+        console.log(sum(3,4));
+
+        //커링함수 단일 인자만 받아서 처리
+        function sumC(x){
+            return function(y){
+                return x+y;
+            }
+        }
+        const x = sumC(3);
+        
+        console.log(x(5));
+
+        console.log(sumC(5)(5));
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
