@@ -4,11 +4,12 @@
     // 자세한 내용을 보려면 https://go.microsoft.com/fwlink/?linkid=830387을(를) 방문하세요.
     "version": "0.2.0",
     "configurations": [
+
         {
             "type": "pwa-chrome",
             "request": "launch",
             "name": "Open ex21.html",
-            "file": "c:\\Users\\ask13\\Desktop\\leesm\\js\\adv\\04_DOM\\ex04.html"
+            "file": "c:\\Users\\ask13\\Desktop\\leesm\\js\\adv\\04_DOM\\ex06.html"
         }
     ]
 }

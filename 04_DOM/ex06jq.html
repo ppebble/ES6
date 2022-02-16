@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>title</title>
+    <style>
+        #mainImgDiv li{
+            list-style : none;
+            
+        }
+        .pic-box1 img{
+            max-width: 100%;
+        }
+        .pic-box2{
+            margin: 0px auto;
+            width:50%;
+            height:10px
+        }
+        .pic-box2 ul{
+            list-style: none;
+            margin : 0; padding: 0;
+        }
+        .pic-box2 ul li{
+            font-size: 0;
+            float:left;
+            width: 24%;
+            margin-right: 1%;
+            cursor: pointer;
+        }
+        #big_img{
+            padding-top: 6px;
+            width: 99%;
+        }
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            // const imgs = document.querySelectorAll('.small_img');
+            // console.log(imgs);
+
+            // for(let i=0; i<imgs.length;i++){
+            //     imgs[i].onclick=function(){
+            //         console.log(this.dataset.image);
+            //         document.getElementById('big_img').src=this.dataset.image;
+            //     }
+            // }
+            // imgs.forEach(elem=> {
+            //     elem.addEventListener('click', function(){
+            //         document.getElementById('big_img').src=this.dataset.image;
+            //     })
+            // })
+            var imgs = $('.small_img');
+            console.log(imgs.val);
+            
+            imgs.on('click', function(){
+                alert('clicked');
+                $('#big_img').attr("src",this.dataset.image);
+            })
+
+        })
+    </script>
+</head>
+<body>
+    <div class="pic-box1">
+        <div class="pic-box2">
+            <ul>
+                <li><img src="libs/sky-gdfcc23c2e_640.jpg" class="small_img" data-image="libs/sky-gdfcc23c2e_640.jpg"></li>
+                <li><img src="libs/5.png" class="small_img" data-image="libs/5.png"></li>
+                <li><img src="libs/sky-gdfcc23c2e_640.jpg" class="small_img" data-image="libs/sky-gdfcc23c2e_640.jpg"></li>
+                <li><img src="libs/sky-gdfcc23c2e_640.jpg" class="small_img" data-image="libs/sky-gdfcc23c2e_640.jpg"></li>
+                
+            </ul>
+            <div id="mainImgDiv">
+                <li><img src="libs/sky-gdfcc23c2e_640.jpg" id="big_img"></li>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

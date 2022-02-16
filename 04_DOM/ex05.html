@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>title</title>
+    <style>
+
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        /*  
+        REMOVE
+       */
+        $(document).ready(function(){
+            var memberList = $("#memberList");
+            var p1 = $("#p1");
+            $("#btn").click(function(){
+                alert("clicked");
+                $("#memberList p").remove('#p1');
+            })
+            
+        })
+        
+
+        
+    </script>
+</head>
+<body>
+    <div id="memberList">
+        <button id="btn">remove</button>
+        <p id="p1">LEE</p>
+        <p id="p2">PARK</p>
+    </div>
+</body>
+</html>

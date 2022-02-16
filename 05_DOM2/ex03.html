@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>title</title>
+    <style>
+
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        /*
+        자바스크립트의 이벤트 동작 방식과 이벤트 대상 얻기
+       */
+        window.onload = () =>{
+            //버튼이 사용자의 행위에 의해 클릭되었는지 확인하기 --> 이벤트 신뢰성 -> isTrusted
+            const btn = document.querySelector('button');
+            btn.addEventListener('click', addMouseEvent);
+
+            function addMouseEvent(event){
+                console.log(event); //isTrusted : true
+
+                const bool = event.isTrusted;
+                if(bool){
+                    console.log("Event is trusted ");
+                }
+                else{
+                    console.log("Event isn't trusted");
+                }
+                
+            }
+            //isTrusted = false ? 스크립트에 의해 메소드가 실행될 때 . . .
+            const event = new Event('click');
+            elem.dispatchEvent(event);
+            //dispatchEvent :: html페이지를 실행시키자마자 자동으로 이벤트가 실행된다.
+
+            //addEventListener 3번째 파라미터 설정 有 / 無  -> 없다면 버블링 있으면 캡쳐링 
+            const spans = document.querySelectorAll("span");
+            spans.forEach(span => {
+                span.addEventListener('click', function(e){
+                    console.log(e.currentTarget.id);
+                    console.log(e.currentTarget.className);
+                }, true)
+            })
+            
+            
+        }
+
+        
+    </script>
+</head>
+<body>
+    <button id="elem">Click me</button>
+    <br><br>
+    <span id="span2" class="spanClass2">
+        <span id="span1" class="spanClass1">
+            <button id="btn">Click Here</button>
+        </span>
+    </span>
+</body>
+</html>

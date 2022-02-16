@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>title</title>
+    <style>
+        ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            border-radius: 1px solid #000;
+        }
+        li{
+            border : 1px solid #000;
+            background-color: white;
+            cursor: pointer;
+            font-size: 0;
+            margin-bottom: 5px;
+            width: 250px;
+        }
+        li:hover{
+            cursor: pointer;
+            border: 2px solid #f00;
+        }
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        /*
+        이벤트 위임과 활용(Delegation)
+       */
+        window.onload = () =>{
+            const uls = document.querySelectorAll("ul");  //li에 걸지말고 상위의 ul에 등록하면 버블링으로 동적으로 할당한 컨텐츠도 선택된다.
+            uls.forEach(ele => {
+                ele.addEventListener('click', function(e){
+                    console.log("clicked");
+                    console.log(e.currentTarget);// li.id 출력됨 :: 이벤트가 위임된 부모의 객체를 반환 ( e.target의 부모 객체를 반환한다.)
+                    console.log(e.target);//img.id 출력됨 :: 이벤트 버블리의 가장 끝단에 위치한 마지막 요소 반환 ( 클릭한 것을 반환함 )
+                })
+                
+            })
+            //동적으로 항목 추가
+            const memberList = document.querySelector('.memberList');
+            const liNode = document.createElement('li');
+            liNode.id = "img4";
+
+            const imgNode = document.createElement('img');
+
+            imgNode.src="libs/sky-gdfcc23c2e_640.jpg"
+            imgNode.width = 250;
+            imgNode.height = 160;
+            imgNode.id="sky";
+
+            liNode.appendChild(imgNode);
+            memberList.appendChild(liNode);
+            
+        }
+        
+        
+    </script>
+</head>
+<body>
+    <ul class="memberList">
+        <li id="img1"><img id="google" src="resources/5.png" width="250px"></li>
+        <li id="img2"><img id="pinterest" src="resources/1.png" width="250px"></li>
+        <li id="img3"><img id="facebook" src="resources/2.png" width="250px"></li>
+    </ul>
+</body>
+</html>
